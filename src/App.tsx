@@ -17,6 +17,13 @@ import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
 import Surveys from './pages/Dashboard/surveys';
+import Mysurveys from './pages/Tienda/mySurveys';
+import Flash from './pages/Tienda/Flash';
+import Banners from './pages/Tienda/Banners';
+import Categories from './pages/Tienda/categories';
+import Coupons from './pages/Tienda/coupons';
+import Items from './pages/Tienda/items';
+
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,12 +51,66 @@ function App() {
             </>
           }
         />
-       <Route
+        <Route
           path="/encuestas-smart"
           element={
             <>
               <PageTitle title="Encuestas Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <Surveys />
+            </>
+          }
+        />
+        <Route
+          path="/categorias"
+          element={
+            <>
+              <PageTitle title="Categorias | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Categories />
+            </>
+          }
+        />
+        <Route
+          path="/items"
+          element={
+            <>
+              <PageTitle title="Items | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Items />
+            </>
+          }
+        />
+        <Route
+          path="/cupones"
+          element={
+            <>
+              <PageTitle title="Cupones | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Coupons />
+            </>
+          }
+        />
+        <Route
+          path="/mis-encuestas"
+          element={
+            <>
+              <PageTitle title="Encuestas | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Mysurveys />
+            </>
+          }
+        />
+        <Route
+          path="/oferta-flash"
+          element={
+            <>
+              <PageTitle title="Oferta Flash | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Flash />
+            </>
+          }
+        />
+        <Route
+          path="/banners"
+          element={
+            <>
+              <PageTitle title="Banners | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Banners />
             </>
           }
         />
