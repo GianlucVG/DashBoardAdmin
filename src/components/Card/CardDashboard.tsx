@@ -7,7 +7,8 @@ interface CardDashboardProps {
   levelUp?: boolean;
   levelDown?: boolean;
   children?: ReactNode;
-  showRate?: boolean;  // Nueva propiedad para controlar la visibilidad del span
+  showRate?: boolean; // Controla la visibilidad del rate
+  isSquare?: boolean; // Nueva propiedad para elegir la forma del contenedor
 }
 
 const CardDashboard: React.FC<CardDashboardProps> = ({
@@ -17,23 +18,31 @@ const CardDashboard: React.FC<CardDashboardProps> = ({
   levelUp,
   levelDown,
   children,
-  showRate = true,  // Valor por defecto es true, para que siempre aparezca si no se especifica
+  showRate = true, // El rate se muestra por defecto
+  isSquare = false, // Por defecto, es rectangular (false)
 }) => {
   return (
-    <div className="flex justify-between items-center rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div
+      className={`flex bg-white items-center p-4 border border-stroke
+        ${
+          isSquare
+            ? 'w-full h-auto flex justify-between items-center gap-4'
+            : 'rounded-sm'
+        }`}
+    >
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
         {children}
       </div>
 
-      <div className="mt-4 flex items-end justify-between">
-        <div>
+      <div className="flex items-end justify-between">
+        <div className='w-max'>
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {total}
           </h4>
           <span className="text-sm font-medium">{title}</span>
         </div>
 
-        {showRate && (  // Condicional para mostrar o no el span del rate
+        {showRate && ( // Condicional para mostrar o no el span del rate
           <span
             className={`flex items-center gap-1 text-sm font-medium ${
               levelUp && 'text-meta-3'

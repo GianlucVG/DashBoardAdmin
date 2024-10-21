@@ -55,7 +55,7 @@ const TablaItem: React.FC<TableProps> = ({
   );
 
   return (
-    <div className="shadow-xl p-8 bg-white rounded-lg container mx-auto my-8">
+    <div className="shadow-xl p-8 bg-white rounded-lg container mx-auto">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">{title}</h1> {/* Título editable */}
 
