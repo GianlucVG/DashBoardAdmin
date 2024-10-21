@@ -8,24 +8,24 @@ export interface RowData {
   status: string;
 }
 
-// Definir un tipo para las columnas
 export interface Column {
   Header: string;
-  accessor?: keyof RowData; // Hacer que accessor sea opcional
-  Cell?: (row: RowData) => JSX.Element; // Tipar correctamente la función Cell
+  accessor?: keyof RowData; 
+  Cell?: (row: RowData) => JSX.Element; 
 }
 
-// Ahora el componente acepta estos tipos
 interface TableProps {
   data: RowData[];
   columns: Column[];
-  onEdit: (row: RowData) => void;
-  onDelete: (row: RowData) => void;
-  title: string; // Prop para el título
-  buttonLabel: string; // Prop para el nombre del primer botón
-  onButtonClick: () => void; // Evento onClick personalizado para el primer botón
-  newButtonLabel: string; // Prop para el nombre del nuevo botón
-  onNewButtonClick: () => void; // Evento onClick personalizado para el nuevo botón
+  onEdit?: (row: RowData) => void;
+  onDelete?: (row: RowData) => void;
+  title: string;
+  buttonLabel?: string;
+  onButtonClick?: () => void;
+  newButtonLabel?: string; 
+  onNewButtonClick?: () => void; 
+  showButton?: boolean; 
+  showNewButton?: boolean; 
 }
 
 const TablaItem: React.FC<TableProps> = ({
@@ -36,6 +36,8 @@ const TablaItem: React.FC<TableProps> = ({
   onButtonClick,
   newButtonLabel,
   onNewButtonClick,
+  showButton = true, 
+  showNewButton = true,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage] = useState(1);
@@ -53,28 +55,30 @@ const TablaItem: React.FC<TableProps> = ({
   );
 
   return (
-    
     <div className="shadow-xl p-8 bg-white rounded-lg container mx-auto my-8">
-      {/* Sección de encabezado de la tabla con buscador y botones */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">{title}</h1> {/* Título editable */}
+
         <div className="flex space-x-2 items-center">
-          {/* Botón nuevo (cambio de texto y evento personalizado) */}
-          <button
-            className="text-[#3c50e0] border-[#3c50e0] flex justify-center rounded border  py-2 px-6 font-medium  hover:shadow-1 dark:border-strokedark dark:text-white"
-            onClick={onNewButtonClick} // Evento onClick personalizado para el nuevo botón
-          >
-            {newButtonLabel} {/* Texto editable del nuevo botón */}
-          </button>
-          {/* Primer botón */}
-          <button
-            className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-90"
-            onClick={onButtonClick} // Evento onClick personalizado para el primer botón
-          >
-            {buttonLabel} {/* Texto editable del primer botón */}
-          </button>
+          {showNewButton && newButtonLabel && onNewButtonClick && (
+            <button
+              className="text-[#3c50e0] border-[#3c50e0] flex justify-center rounded border py-2 px-6 font-medium hover:shadow-1 dark:border-strokedark dark:text-white"
+              onClick={onNewButtonClick}
+            >
+              {newButtonLabel}
+            </button>
+          )}
+          {showButton && buttonLabel && onButtonClick && (
+            <button
+              className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-90"
+              onClick={onButtonClick}
+            >
+              {buttonLabel}
+            </button>
+          )}
         </div>
       </div>
+
       <div className="flex justify-between items-center mb-4">
         <div className="w-full justify-between flex space-x-2 items-center">
           <input
@@ -91,6 +95,7 @@ const TablaItem: React.FC<TableProps> = ({
           </select>
         </div>
       </div>
+
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white">
           <thead>

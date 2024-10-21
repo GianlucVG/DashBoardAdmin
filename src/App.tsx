@@ -5,7 +5,6 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
 import ECommerce from './pages/Dashboard/ECommerce';
 import FormElements from './pages/Form/FormElements';
@@ -13,17 +12,26 @@ import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
 import Surveys from './pages/Dashboard/surveys';
 import Mysurveys from './pages/Tienda/mySurveys';
 import Flash from './pages/Tienda/Flash';
 import Banners from './pages/Tienda/Banners';
-import Categories from './pages/Tienda/categories';
-import Coupons from './pages/Tienda/coupons';
-import Items from './pages/Tienda/items';
-
+import Categories from './pages/Tienda/Categories';
+import Coupons from './pages/Tienda/Coupons';
+import Items from './pages/Tienda/Items';
+import SendPoints from './pages/TransaccionesSmart/SendPoints';
+import RedeemPoints from './pages/TransaccionesSmart/RedeemPoints';
+import RedeemCoupon from './pages/TransaccionesSmart/RedeemCoupon';
+import Movements from './pages/TransaccionesSmart/Movements';
+import PushNotifications from './pages/InteraccionesSmart/PushNotifications';
+import UserNearby from './pages/InteraccionesSmart/UserNearby';
+import MerchantNetwork from './pages/InteraccionesSmart/MerchantNetwork';
+import Roles from './pages/Employees/Roles';
+import Employees from './pages/Employees/Employees';
+import Premium from './pages/premium';
+import DashboardSuperAdmin from './pages/Dashboard/DashboardSuperAdmin';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -57,6 +65,15 @@ function App() {
             <>
               <PageTitle title="Encuestas Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <Surveys />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard-super-admin"
+          element={
+            <>
+              <PageTitle title="Encuestas Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <DashboardSuperAdmin />
             </>
           }
         />
@@ -115,11 +132,101 @@ function App() {
           }
         />
         <Route
-          path="/calendar"
+          path="/enviar-puntos"
+          element={
+            <>
+              <PageTitle title="Enviar Puntos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <SendPoints />
+            </>
+          }
+        />
+        <Route
+          path="/canjear-puntos"
+          element={
+            <>
+              <PageTitle title="Canjear Puntos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <RedeemPoints />
+            </>
+          }
+        />
+        <Route
+          path="/canjear-cupon"
+          element={
+            <>
+              <PageTitle title="Canjear Cupon | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <RedeemCoupon />
+            </>
+          }
+        />
+        <Route
+          path="/premium"
+          element={
+            <>
+              <PageTitle title="Suscripciones Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Premium />
+            </>
+          }
+        />
+        <Route
+          path="/mis-movimientos"
+          element={
+            <>
+              <PageTitle title="Mis Movimientos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Movements />
+            </>
+          }
+        />
+        <Route
+          path="/roles"
+          element={
+            <>
+              <PageTitle title="Mis Movimientos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Roles />
+            </>
+          }
+        />
+        <Route
+          path="/empleados"
+          element={
+            <>
+              <PageTitle title="Mis Movimientos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Employees />
+            </>
+          }
+        />
+        <Route
+          path="/mis-movimientos"
+          element={
+            <>
+              <PageTitle title="Mis Movimientos | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Movements />
+            </>
+          }
+        />
+        <Route
+          path="/notificaciones-push"
           element={
             <>
               <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Calendar />
+              <PushNotifications />
+            </>
+          }
+        />
+        <Route
+          path="/usuario-cerca"
+          element={
+            <>
+              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <UserNearby />
+            </>
+          }
+        />
+        <Route
+          path="/red-comercios"
+          element={
+            <>
+              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <MerchantNetwork />
             </>
           }
         />
@@ -174,15 +281,6 @@ function App() {
             <>
               <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <Chart />
-            </>
-          }
-        />
-        <Route
-          path="/ui/alerts"
-          element={
-            <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Alerts />
             </>
           }
         />

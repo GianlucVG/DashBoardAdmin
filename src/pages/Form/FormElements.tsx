@@ -1,7 +1,7 @@
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import CheckboxFive from '../../components/Checkboxes/CheckboxFive';
 import CheckboxFour from '../../components/Checkboxes/CheckboxFour';
-import CheckboxOne from '../../components/Checkboxes/CheckboxOne';
+import CheckboxOne from '../../components/Checkboxes/Checkbox';
 import CheckboxThree from '../../components/Checkboxes/CheckboxThree';
 import CheckboxTwo from '../../components/Checkboxes/CheckboxTwo';
 import SwitcherFour from '../../components/Switchers/SwitcherFour';
@@ -138,7 +138,7 @@ const FormElements = () => {
                 </label>
                 <textarea
                   rows={6}
-                  placeholder="Default textarea"
+                  
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 ></textarea>
               </div>
@@ -176,7 +176,6 @@ const FormElements = () => {
               </h3>
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
-              <CheckboxOne />
               <CheckboxTwo />
               <CheckboxThree />
               <CheckboxFour />

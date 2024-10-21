@@ -1,5 +1,5 @@
 import { ApexOptions } from 'apexcharts';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const options: ApexOptions = {
@@ -76,64 +76,110 @@ const ChartFour: React.FC = () => {
       {
         name: 'Cupones',
         // Datos para los últimos 30 días
-        data: [44, 55, 41, 67, 22, 43, 65, 34, 55, 78, 90, 54, 32, 21, 45, 66, 77, 32, 56, 65, 34, 55, 67, 90, 44, 55, 41, 67, 22, 43],
+        data: [
+          44, 55, 41, 67, 22, 43, 65, 34, 55, 78, 90, 54, 32, 21, 45, 66, 77,
+          32, 56, 65, 34, 55, 67, 90, 44, 55, 41, 67, 22, 43,
+        ],
       },
     ],
   });
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
-    <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
-      <div className="mb-4 justify-between gap-4 sm:flex">
-        <div>
-          <h4 className="text-xl font-semibold text-black dark:text-white">
-            Respuestas a Encuestas de Cupones por Día (Últimos 30 días)
-          </h4>
-        </div>
-        <div>
-          <div className="relative z-20 inline-block">
-            <select
-              name="#"
-              id="#"
-              className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
-            >
-              <option value="" className="dark:bg-boxdark">This Month</option>
-              <option value="" className="dark:bg-boxdark">Last Month</option>
-            </select>
-            <span className="absolute top-1/2 right-3 z-10 -translate-y-1/2">
-              <svg
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.47072 1.08816C0.47072 1.02932 0.500141 0.955772 0.54427 0.911642C0.647241 0.808672 0.809051 0.808672 0.912022 0.896932L4.85431 4.60386C4.92785 4.67741 5.06025 4.67741 5.14851 4.60386L9.09079 0.896932C9.19376 0.793962 9.35557 0.808672 9.45854 0.911642C9.56151 1.01461 9.5468 1.17642 9.44383 1.27939L5.50155 4.98632C5.22206 5.23639 4.78076 5.23639 4.51598 4.98632L0.558981 1.27939C0.50014 1.22055 0.47072 1.16171 0.47072 1.08816Z"
-                  fill="#637381"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M1.22659 0.546578L5.00141 4.09604L8.76422 0.557869C9.08459 0.244537 9.54201 0.329403 9.79139 0.578788C10.112 0.899434 10.0277 1.36122 9.77668 1.61224L9.76644 1.62248L5.81552 5.33722C5.36257 5.74249 4.6445 5.7544 4.19352 5.32924C4.19327 5.32901 4.19377 5.32948 4.19352 5.32924L0.225953 1.61241C0.102762 1.48922 -4.20186e-08 1.31674 -3.20269e-08 1.08816C-2.40601e-08 0.905899 0.0780105 0.712197 0.211421 0.578787C0.494701 0.295506 0.935574 0.297138 1.21836 0.539529L1.22659 0.546578ZM4.51598 4.98632C4.78076 5.23639 5.22206 5.23639 5.50155 4.98632L9.44383 1.27939C9.5468 1.17642 9.56151 1.01461 9.45854 0.911642C9.35557 0.808672 9.19376 0.793962 9.09079 0.896932L5.14851 4.60386C5.06025 4.67741 4.92785 4.67741 4.85431 4.60386L0.912022 0.896932C0.809051 0.808672 0.647241 0.808672 0.54427 0.911642C0.500141 0.955772 0.47072 1.02932 0.47072 1.08816C0.47072 1.16171 0.50014 1.22055 0.558981 1.27939L4.51598 4.98632Z"
-                  fill="#637381"
-                />
-              </svg>
-            </span>
+    <>
+      <div
+        className="flex justify-between items-center
+ col-span-12 xl:col-span-4"
+      >
+        <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow-md w-max">
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-500">Oct 4, 2024 - Oct 10, 2024</span>
           </div>
+        </div>
+
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={toggleDropdown}
+            className="text-gray-500 bg-white border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500 flex items-center"
+          >
+            Yearly
+            <svg
+              className="w-4 h-4 ml-2"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          {dropdownOpen && (
+            <div className="absolute right-0 mt-1 w-28 bg-white shadow-lg rounded-md">
+              <ul>
+                <li className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                  Daily
+                </li>
+                <li className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                  Weekly
+                </li>
+                <li className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                  Yearly
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
-      <div>
-        <div id="chartTwo" className="-ml-5 -mb-9">
-          <ReactApexChart
-            options={options}
-            series={state.series}
-            type="bar"
-            height={350}
-          />
+      <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+        <div className="mb-4 justify-between gap-4 sm:flex">
+          <div>
+            <h4 className="text-xl font-semibold text-black dark:text-white">
+              Respuestas a Encuestas de Cupones por Día{' '}
+            </h4>
+          </div>
+        </div>
+
+        <div>
+          <div id="chartTwo" className="-ml-5 -mb-9">
+            <ReactApexChart
+              options={options}
+              series={state.series}
+              type="bar"
+              height={350}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
