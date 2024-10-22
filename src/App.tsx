@@ -32,6 +32,15 @@ import Roles from './pages/Employees/Roles';
 import Employees from './pages/Employees/Employees';
 import Premium from './pages/premium';
 import DashboardSuperAdmin from './pages/Dashboard/DashboardSuperAdmin';
+import WalletUser from './pages/GestionClientes/WalletUser';
+import SmartUsers from './pages/GestionClientes/SmartUsers';
+import ZoneManagement from './pages/GestionZonas/ZoneManagement';
+import ManagementCategory from './pages/GestionCategoria/ManagementCategory';
+import BannersSmart from './pages/SocialPuntosSmart/BannersSmart';
+import CompanyInformation from './pages/GestionEmpresarial/CompanyInformation';
+import NotificacionesSmart from './pages/SocialPuntosSmart/NotificacionesSmart';
+import TermsConditions from './pages/GestionEmpresarial/TermsConditions';
+import PrivacyPolicy from './pages/GestionEmpresarial/PrivacyPolicy';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -74,6 +83,87 @@ function App() {
             <>
               <PageTitle title="Encuestas Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <DashboardSuperAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/billetera-usuario"
+          element={
+            <>
+              <PageTitle title="Billetera de Usuario | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <WalletUser />
+            </>
+          }
+        />
+        <Route
+          path="/usuarios-smart"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <SmartUsers />
+            </>
+          }
+        />
+        <Route
+          path="/gestion-zona"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <ZoneManagement />
+            </>
+          }
+        />
+        <Route
+          path="/gestion-categoria"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <ManagementCategory />
+            </>
+          }
+        />
+        <Route
+          path="/smartBanners"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <BannersSmart />
+            </>
+          }
+        />
+        <Route
+          path="/notificaciones-smart"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <NotificacionesSmart />
+            </>
+          }
+        />
+        <Route
+          path="/informacion-empresa"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <CompanyInformation />
+            </>
+          }
+        />
+        <Route
+          path="/politicas-privacidad"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/terminos-condiciones"
+          element={
+            <>
+              <PageTitle title="Usuarios Smart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <TermsConditions />
             </>
           }
         />

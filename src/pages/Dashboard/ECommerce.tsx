@@ -1,7 +1,7 @@
 import CardDataStats from '../../components/CardDataStats';
 import ChartOne from '../../components/Charts/ChartOne';
 import ChartThree from '../../components/Charts/ChartThree';
-import ChartTwo from '../../components/Charts/ChartTwo';
+import ChartComponent from '../../components/Charts/ChartTwo';
 import MapOne from '../../components/Maps/MapOne';
 import TableOne from '../../components/Tables/TableOne';
 
@@ -9,7 +9,12 @@ const ECommerce: React.FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <CardDataStats title="Cupones Canjeados" total="40" rate="0.43%" levelUp>
+        <CardDataStats
+          title="Cupones Canjeados"
+          total="40"
+          rate="0.43%"
+          levelUp
+        >
           <svg
             className="fill-primary dark:fill-white"
             width="22"
@@ -28,7 +33,12 @@ const ECommerce: React.FC = () => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Puntos Emitidos" total="40 PS" rate="4.35%" levelUp>
+        <CardDataStats
+          title="Puntos Emitidos"
+          total="40 PS"
+          rate="4.35%"
+          levelUp
+        >
           <svg
             className="fill-primary dark:fill-white"
             width="20"
@@ -94,10 +104,25 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
       </div>
-
+      <div className="flex gap-4 mt-4">
+        <div className="w-[70%]">
+          <ChartOne />
+        </div>
+        <div className="">
+          <ChartComponent
+            title="Puntos de la semana"
+            series={[
+              { name: 'Emitidos', data: [44, 55, 41, 67, 22, 43, 65] },
+              { name: 'Canjeados', data: [13, 23, 20, 8, 13, 27, 15] },
+            ]}
+            categories={['M', 'T', 'W', 'T', 'F', 'S', 'S']}
+            chartType="bar"
+            colors={['#3C50E0', '#80CAEE']}
+            widthClass={'height: 28.8rem; width: max-content;'}
+          />
+        </div>
+      </div>
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <ChartOne />
-        <ChartTwo />
         <ChartThree />
         <MapOne />
         <div className="col-span-12 xl:col-span-12">

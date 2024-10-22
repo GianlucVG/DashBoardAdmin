@@ -3,10 +3,7 @@ import ChatFive from '../../components/Charts/ChatFive';
 import TableProps from '../../components/TableProps/TableProps';
 
 const Surveys: React.FC = () => {
-  const customStyle = {
-    width: '100%',
-    height: '300px',
-  };
+  
   const data = [
     { url: 'Google', views: '100%' },
     { url: 'Github', views: '75%' },

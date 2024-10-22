@@ -55,15 +55,13 @@ const DashboardSuperAdmin: React.FC = () => {
   ];
   const onEdit = (row: RowData) => {
     console.log('Editar', row);
-    // Lógica para editar
   };
   const onView = (row: RowData) => {
     console.log('Ver', row);
-    setShowDetails(true); // Actualiza el estado para mostrar el div
+    setShowDetails(true); // Mostrar el div con los detalles
   };
   const onDelete = (row: RowData) => {
     console.log('Borrar', row);
-    // Lógica para borrar
   };
 
   const handleButtonClick = () => {
@@ -73,8 +71,6 @@ const DashboardSuperAdmin: React.FC = () => {
   const handleNewButtonClick = () => {
     console.log('Nuevo botón clickeado');
   };
-
-
   const dataSecond: RowData[] = [
     { item: 'Free package', price: '$0', date: 'Jan 13, 2023', status: 'Paid' },
     {
@@ -97,88 +93,85 @@ const DashboardSuperAdmin: React.FC = () => {
     },
   ];
   const columnsSecond: Column[] = [
-    { Header: 'Tienda', accessor: 'item' as keyof RowData },
-    { Header: 'Items', accessor: 'price' as keyof RowData },
-    { Header: 'Cupones Emitidios', accessor: 'date' as keyof RowData },
-    { Header: 'Encuestas Emitidas', accessor: 'date' as keyof RowData },
-    {
-      Header: 'Acciones',
-      Cell: (row: RowData) => (
-        <div className="ml-4 flex space-x-2">
-          <button className="text-blue-500" onClick={() => onEdit(row)}>
-            <i className="far fa-edit"></i>
-          </button>
-          <button className="text-red-500" onClick={() => onDelete(row)}>
-            <i className="far fa-trash-alt"></i>{' '}
-          </button>
-        </div>
-      ),
-    },
+    { Header: 'Sucursal', accessor: 'item' as keyof RowData },
+    { Header: 'Puntos Emitidios', accessor: 'price' as keyof RowData },
+    { Header: 'Puntos Canjeados', accessor: 'date' as keyof RowData },
+    { Header: 'Vistas', accessor: 'date' as keyof RowData }
   ];
-
   return (
     <>
-      <div className="">
-        <div className="flex justify-between">
-          <ChartComponent
-            title="Puntos de la semana"
-            series={[
-              { name: 'Cupones Emitidos', data: [44, 55, 41, 67, 22, 43, 65] },
-              { name: 'Puntos Emitidos', data: [13, 23, 20, 8, 13, 27, 15] },
-              {
-                name: 'Tiendas Registradas',
-                data: [13, 23, 20, 8, 13, 27, 15],
-              },
-              { name: 'Encuestas Emitidas', data: [13, 23, 20, 8, 13, 27, 15] },
-            ]}
-            categories={['M', 'T', 'W', 'T', 'F', 'S', 'S']}
-            chartType="bar"
-            colors={['#3C50E0', '#80CAEE', '#ff0000', '#00bd2f']}
-          />
+      {/* Mostrar el contenido solo cuando showDetails es falso */}
+      {!showDetails && (
+        <div className="">
+          <div className="flex justify-between">
+            <ChartComponent
+              title="Puntos de la semana"
+              series={[
+                {
+                  name: 'Cupones Emitidos',
+                  data: [44, 55, 41, 67, 22, 43, 65],
+                },
+                { name: 'Puntos Emitidos', data: [13, 23, 20, 8, 13, 27, 15] },
+                {
+                  name: 'Tiendas Registradas',
+                  data: [13, 23, 20, 8, 13, 27, 15],
+                },
+                {
+                  name: 'Encuestas Emitidas',
+                  data: [13, 23, 20, 8, 13, 27, 15],
+                },
+              ]}
+              categories={['M', 'T', 'W', 'T', 'F', 'S', 'S']}
+              chartType="bar"
+              colors={['#3C50E0', '#80CAEE', '#ff0000', '#00bd2f']}
+            />
 
-          <div className="w-max flex flex-col justify-between">
-            <CardDashboard
-              title="Cupones Emitidos"
-              total="40"
-              showRate={false}
-              isSquare={true}
-            />
-            <CardDashboard
-              title="Cupones Emitidos"
-              total="40"
-              showRate={false}
-              isSquare={true}
-            />
-            <CardDashboard
-              title="Cupones Emitidos"
-              total="40"
-              showRate={false}
-              isSquare={true}
-            />
-            <CardDashboard
-              title="Cupones Emitidos"
-              total="40"
-              showRate={false}
-              isSquare={true}
+            <div className="w-max flex flex-col justify-between">
+              <CardDashboard
+                title="Cupones Emitidos"
+                total="40"
+                showRate={false}
+                isSquare={true}
+              />
+              <CardDashboard
+                title="Cupones Emitidos"
+                total="40"
+                showRate={false}
+                isSquare={true}
+              />
+              <CardDashboard
+                title="Cupones Emitidos"
+                total="40"
+                showRate={false}
+                isSquare={true}
+              />
+              <CardDashboard
+                title="Cupones Emitidos"
+                total="40"
+                showRate={false}
+                isSquare={true}
+              />
+            </div>
+          </div>
+          <div className="container mx-auto my-8">
+            <TablaItem
+              data={data}
+              columns={columns}
+              title="Tiendas Totales"
+              buttonLabel="Agregar Empleado"
+              onButtonClick={handleButtonClick}
+              newButtonLabel="Importar"
+              onNewButtonClick={handleNewButtonClick}
+              onEdit={onEdit}
+              onDelete={onDelete}
+              showNewButton={false}
+              showButton={false}
             />
           </div>
         </div>
-        <div className="container mx-auto my-8">
-          <TablaItem
-            data={data}
-            columns={columns}
-            title="Tiendas Totales"
-            buttonLabel="Agregar Empleado"
-            onButtonClick={handleButtonClick}
-            newButtonLabel="Importar"
-            onNewButtonClick={handleNewButtonClick}
-            onEdit={onEdit}
-            onDelete={onDelete}
-            showNewButton={false}
-            showButton={false}
-          />
-        </div>
-      </div>
+      )}
+
+      {/* Mostrar este div cuando showDetails sea verdadero */}
       {showDetails && (
         <div className="flex flex-col gap-8">
           <div className="flex gap-4">
@@ -340,7 +333,9 @@ const DashboardSuperAdmin: React.FC = () => {
                 <div className="w-24 h-24 bg-gray-300 rounded-md mr-4"></div>
 
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Nombre de la tienda</h5>
+                  <h5 className="text-lg font-bold mb-2">
+                    Nombre de la tienda
+                  </h5>
 
                   <p className="text-sm">
                     <span className="font-semibold">Administrador:</span>
@@ -385,7 +380,10 @@ const DashboardSuperAdmin: React.FC = () => {
               widthClass="w-[58.5%]"
               title="Puntos de la semana"
               series={[
-                { name: 'Cupones Emitidos', data: [44, 55, 41, 67, 22, 43, 65] },
+                {
+                  name: 'Cupones Emitidos',
+                  data: [44, 55, 41, 67, 22, 43, 65],
+                },
                 { name: 'Puntos Emitidos', data: [13, 23, 20, 8, 13, 27, 15] },
               ]}
               categories={['M', 'T', 'W', 'T', 'F', 'S', 'S']}

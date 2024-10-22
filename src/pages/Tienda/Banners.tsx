@@ -88,7 +88,7 @@ const Banners = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Banner de Cupón" />
+      <Breadcrumb pageName="Banner de Banner" />
 
       {showAlert && (
         <Alert
@@ -121,7 +121,7 @@ const Banners = () => {
         <div className="p-6 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div className="text-2xl py-4 px-7 dark:border-strokedark">
             <h3 className="font-medium text-black dark:text-white">
-              Información del cupón
+              Información del Banner
             </h3>
           </div>
           <div className="grid grid-cols-5 gap-8 mt-4">
@@ -134,7 +134,7 @@ const Banners = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="emailAddress"
                       >
-                        Titulo del Cupón *
+                        Titulo del Banner *
                       </label>
                       <div className="relative">
                         <input className="w-full rounded border border-stroke py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
@@ -183,7 +183,7 @@ const Banners = () => {
               <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                   <h3 className="font-medium text-black dark:text-white">
-                    Subir una imagen
+                    Subir un banner
                   </h3>
                 </div>
                 <div className="p-7">
