@@ -1,4 +1,4 @@
-import Maps from '../../components/GoogleMaps/Maps';
+import Maps from '../../components/molecules/GoogleMaps/Maps';
 function CompanyInformation() {
   const handlePolygonComplete = (path: { lat: number; lng: number }[]) => {
     console.log('Polígono completo. Coordenadas:', path);

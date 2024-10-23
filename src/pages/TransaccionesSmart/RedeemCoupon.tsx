@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
 import UserTwo from '../../images/cupon/cupon.jpg';
 
 function RedeemCoupon() {

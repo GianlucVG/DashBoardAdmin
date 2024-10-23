@@ -1,5 +1,5 @@
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
-import Maps from '../../components/GoogleMaps/Maps';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
+import Maps from '../../components/molecules/GoogleMaps/Maps';
 
 function UserNearby() {
   const handlePolygonComplete = (path: { lat: number; lng: number }[]) => {

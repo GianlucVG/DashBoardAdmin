@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Checkbox from '../../components/Checkboxes/Checkbox';
 import TablaItem, {
   Column,
   RowData,
-} from '../../components/TablaItem/TablaItem';
+} from '../../components/molecules/TablaItem/TablaItem'
+import Checkbox from '../../components/atoms/Checkboxes/Checkbox';
 
 function Roles() {
   const data: RowData[] = [

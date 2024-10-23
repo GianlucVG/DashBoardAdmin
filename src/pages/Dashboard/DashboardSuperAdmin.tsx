@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import CardDashboard from '../../components/Card/CardDashboard';
+
 import TablaItem, {
   Column,
   RowData,
-} from '../../components/TablaItem/TablaItem';
-import ChartComponent from '../../components/Charts/ChartTwo';
+} from '../../components/molecules/TablaItem/TablaItem'
+import CardDashboard from '../../components/molecules/Card/CardDashboard';
+import ChartComponent from '../../components/molecules/Charts/ChartTwo';
 
 const DashboardSuperAdmin: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);

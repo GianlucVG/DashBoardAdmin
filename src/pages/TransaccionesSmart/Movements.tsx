@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TablaItem, {
   Column,
   RowData,
-} from '../../components/TablaItem/TablaItem';
+} from '../../components/molecules/TablaItem/TablaItem'
 
 const Movements = () => {
   const [, setShowForm] = useState(false);

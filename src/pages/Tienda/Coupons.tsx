@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
 import TablaItem, {
   Column,
   RowData,
-} from '../../components/TablaItem/TablaItem';
+} from '../../components/molecules/TablaItem/TablaItem'
 import Alert from '../UiElements/Alerts'; // Importa el componente Alert
 
 const Coupons = () => {

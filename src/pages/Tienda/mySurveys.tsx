@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
-import RadioInputComponent from '../../components/RadioInputComponent';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
 import TablaItem, {
   Column,
   RowData,
-} from '../../components/TablaItem/TablaItem';
+} from '../../components/molecules/TablaItem/TablaItem'
 import Alert from '../UiElements/Alerts';
+import RadioInputComponent from '../../components/atoms/RadioInputComponent';
 
 const customStyle = {
   width: '100%',

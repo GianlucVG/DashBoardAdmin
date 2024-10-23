@@ -1,9 +1,9 @@
-import CardDataStats from '../../components/CardDataStats';
-import ChartOne from '../../components/Charts/ChartOne';
-import ChartThree from '../../components/Charts/ChartThree';
-import ChartComponent from '../../components/Charts/ChartTwo';
-import MapOne from '../../components/Maps/MapOne';
-import TableOne from '../../components/Tables/TableOne';
+import ChartOne from '../../components/molecules/Charts/ChartOne';
+import ChartThree from '../../components/molecules/Charts/ChartThree';
+import ChartComponent from '../../components/molecules/Charts/ChartTwo';
+import CardDataStats from '../../components/organisms/CardDataStats';
+import MapOne from '../../components/organisms/Maps/MapOne';
+import TableOne from '../../components/organisms/Tables/TableOne';
 
 const ECommerce: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
-import Maps from '../../components/GoogleMaps/Maps';
-import ScheduleConfiguration, { ScheduleState } from '../../components/ScheduleConfiguration/ScheduleConfiguration';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
+import Maps from '../../components/molecules/GoogleMaps/Maps';
+import ScheduleConfiguration, { ScheduleState } from '../../components/organisms/ScheduleConfiguration/ScheduleConfiguration';
 
 function MerchantNetwork() {
   const handlePolygonComplete = (path: { lat: number; lng: number }[]) => {

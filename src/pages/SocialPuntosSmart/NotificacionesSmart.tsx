@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import Breadcrumb from "../../components/atoms/Breadcrumbs/Breadcrumb";
 import TablaItem, {
   RowData,
   Column,
-} from '../../components/TablaItem/TablaItem';
+} from '../../components/molecules/TablaItem/TablaItem'
 import Alert from '../UiElements/Alerts';
 
 function NotificacionesSmart() {

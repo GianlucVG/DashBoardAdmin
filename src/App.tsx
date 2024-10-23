@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Loader from './common/Loader';
-import PageTitle from './components/PageTitle';
+
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Chart from './pages/Chart';
@@ -41,6 +41,7 @@ import CompanyInformation from './pages/GestionEmpresarial/CompanyInformation';
 import NotificacionesSmart from './pages/SocialPuntosSmart/NotificacionesSmart';
 import TermsConditions from './pages/GestionEmpresarial/TermsConditions';
 import PrivacyPolicy from './pages/GestionEmpresarial/PrivacyPolicy';
+import PageTitle from './components/molecules/PageTitle';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);

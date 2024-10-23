@@ -1,6 +1,7 @@
-import ChartFour from '../../components/Charts/ChartFour';
-import ChatFive from '../../components/Charts/ChatFive';
-import TableProps from '../../components/TableProps/TableProps';
+import ChartFour from "../../components/molecules/Charts/ChartFour";
+import ChatFive from "../../components/molecules/Charts/ChatFive";
+import TableProps from "../../components/molecules/TableProps/TableProps";
+
 
 const Surveys: React.FC = () => {
   
